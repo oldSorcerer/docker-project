@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .  # Контекст для сборки — текущая директория
+      dockerfile: Dockerfile  # Указание файла Dockerfile для сборки
+    image: myapp:latest  # Имя образа, создаваемого из Dockerfile
+    container_name: myapp_container  # Имя контейнера

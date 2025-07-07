@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+       # Задаем пароль для пользователя root
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

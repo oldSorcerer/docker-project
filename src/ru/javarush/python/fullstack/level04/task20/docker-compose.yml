@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:${NGINX_VERSION}
+    ports:
+      - "${HOST_PORT}:80"

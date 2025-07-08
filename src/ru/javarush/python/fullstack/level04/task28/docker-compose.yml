@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: ???
+    deploy:
+      replicas: ???
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+  postgres:
+    image: ???
+    deploy:
+      replicas: ???
+    environment:
+      POSTGRES_USER: exampleuser
+      POSTGRES_PASSWORD: examplepass
+      POSTGRES_DB: exampledb
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres-data:

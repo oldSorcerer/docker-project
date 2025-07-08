@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  web:
+    image: ???
+    ports:
+      - "80:80"
+    networks:
+      - webnet
+
+  db:
+    image: ???
+    environment:
+      POSTGRES_USER: example
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: exampledb
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge

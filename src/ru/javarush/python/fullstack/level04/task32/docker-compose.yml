@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  web:
+    image: alpine
+    container_name: web_server
+    command: ???
+    depends_on:
+      - database
+    networks:
+      - webnet
+
+  database:
+    image: mysql:5.7
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge

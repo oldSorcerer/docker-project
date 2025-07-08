@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: ???
+    ports:
+      - "80:80"
+    volumes:
+      - ???:???
+    networks:
+      - ???
+
+  postgres:
+    image: ???
+    environment:
+      POSTGRES_USER: exampleuser
+      POSTGRES_PASSWORD: examplepass
+      POSTGRES_DB: exampledb
+    volumes:
+      - ???:/var/lib/postgresql/data
+    networks:
+      - ???
+
+networks:
+  webnet:
+
+volumes:
+  db-data:

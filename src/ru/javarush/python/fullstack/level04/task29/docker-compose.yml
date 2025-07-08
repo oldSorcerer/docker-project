@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web:
+    image: nginx:alpine
+    deploy:
+      replicas: ???
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    networks:
+      - webnet
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+
+  app:
+    image: myapp:latest  
+    networks:
+      - webnet
+    deploy:
+      replicas: ???
+    ports:
+      - "8081-8085:80"
+
+networks:
+  webnet:

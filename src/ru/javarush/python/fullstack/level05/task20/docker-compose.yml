@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: nginx:alpine
+    networks:
+
+  backend:
+    image: node:alpine
+    networks:
+
+  database:
+    image: mysql:5.7
+    networks:
+
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+networks:

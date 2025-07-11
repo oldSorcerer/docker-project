@@ -1,5 +1,5 @@
 # Используем базовый образ Node.js версии 20
-FROM ???
+FROM node:20-alpine
 
 # Устанавливаем рабочую директорию
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Устанавливаем зависимости
-RUN ???
+RUN npm install
 
 # Копируем весь код приложения
 COPY . .
@@ -17,7 +17,7 @@ COPY . .
 ENV NODE_ENV=production
 
 # Открываем порт 8080
-EXPOSE ???
+EXPOSE 8080
 
 # Команда для запуска приложения
 CMD [ "npm", "start" ]

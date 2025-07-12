@@ -1,5 +1,5 @@
 # Использование минимального базового образа Alpine
-FROM ???
+FROM python:alpine
 
 # Установка обновлений и python3
 RUN apk add --no-cache python3-dev && \
@@ -9,7 +9,7 @@ RUN apk add --no-cache python3-dev && \
 WORKDIR /app
 
 # Копирование исходного кода приложения в контейнер
-COPY ???
+COPY app.py .
 
 # Команда для выполнения Python-приложения
 CMD ["python3", "app.py"]

@@ -1,5 +1,5 @@
 # Первый этап: сборка React-приложения
-FROM ???
+FROM node:14 as build
 
 # Установка рабочих директорий
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Второй этап: создание сервера на базе Nginx для обслуживания статических файлов
-FROM ???
+FROM nginx:alpine
 
 # Копирование файлов сборки в директорию Nginx
 COPY --from=build /app/build /usr/share/nginx/html

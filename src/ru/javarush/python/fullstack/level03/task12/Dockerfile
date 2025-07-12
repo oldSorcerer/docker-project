@@ -1,5 +1,5 @@
 # Первый этап: сборка React-приложения
-FROM ??? as build
+FROM node:14-alpine as build
 
 WORKDIR /app
 
@@ -12,10 +12,10 @@ COPY . .
 RUN npm run build
 
 # Второй этап: настройка Nginx для хостинга статических файлов
-FROM ???
+FROM nginx:alpine
 
 # Копирование файлов сборки из первого этапа в директорию Nginx
-COPY ??? /app/build /usr/share/nginx/html
+COPY --from=build /app/build /usr/share/nginx/html
 
 # Конфигурация Nginx
 EXPOSE 80

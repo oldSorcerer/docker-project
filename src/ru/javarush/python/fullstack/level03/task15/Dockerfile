@@ -1,11 +1,11 @@
 # Используем официальный образ Python в качестве базового
-FROM ???
+FROM python:3.9-slim
 
 # Устанавливаем рабочую директорию внутри контейнера
 WORKDIR /app
 
 # Копируем файл с зависимостями в контейнер
-COPY ??? ./
+COPY requirements.txt ./
 
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt

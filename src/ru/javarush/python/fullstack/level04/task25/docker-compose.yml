@@ -4,18 +4,18 @@ services:
   web:
     image: nginx:latest
     networks:
-      ???
+      - front-tier
 
   backend:
     image: my-backend-app:latest
     networks:
-      ???
-      ???
+      - front-tier
+      - back-tier
 
   database:
     image: postgres:latest
     networks:
-      ???
+      - back-tier
 
 networks:
   front-tier:

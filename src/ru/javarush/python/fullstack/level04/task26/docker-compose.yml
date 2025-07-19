@@ -2,24 +2,28 @@ version: '3.8'
 
 services:
   nginx:
-    image: ???
+    image: nginx:latest
     ports:
       - "80:80"
     volumes:
-      - ???:???
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     networks:
-      - ???
+      - webnet
+
+# :ro: Этот параметр обозначает, что volumes монтируется в режиме "только для чтения" (read-only).
+# Это значит, что контейнер не сможет изменять этот файл. Это полезно для конфигурационных файлов,
+# чтобы предотвратить изменения, которые могут нарушить работу приложения.
 
   postgres:
-    image: ???
+    image: postgres:latest
     environment:
       POSTGRES_USER: exampleuser
       POSTGRES_PASSWORD: examplepass
       POSTGRES_DB: exampledb
     volumes:
-      - ???:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
     networks:
-      - ???
+      - webnet
 
 networks:
   webnet:

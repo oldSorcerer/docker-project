@@ -2,18 +2,18 @@ version: '3.8'
 
 services:
   nginx:
-    image: ???
+    image: nginx:latest
     deploy:
-      replicas: ???
+      replicas: 4
     ports:
       - "80:80"
     networks:
       - app-network
 
   postgres:
-    image: ???
+    image: postgres:latest
     deploy:
-      replicas: ???
+      replicas: 1
     environment:
       POSTGRES_USER: exampleuser
       POSTGRES_PASSWORD: examplepass

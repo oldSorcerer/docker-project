@@ -4,7 +4,7 @@ services:
   web:
     image: alpine
     container_name: web_server
-    command: ???
+    command: sh -c "ping -c 3 database"
     depends_on:
       - database
     networks:

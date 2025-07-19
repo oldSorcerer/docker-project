@@ -4,7 +4,7 @@ services:
   web:
     image: nginx:alpine
     deploy:
-      replicas: ???
+      replicas: 5
     ports:
       - "80:80"
     depends_on:
@@ -19,7 +19,7 @@ services:
     networks:
       - webnet
     deploy:
-      replicas: ???
+      replicas: 5
     ports:
       - "8081-8085:80"
 

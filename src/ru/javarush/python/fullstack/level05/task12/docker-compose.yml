@@ -3,6 +3,7 @@ version: '3.9'
 services:
   web:
     image: nginx:latest
+    container_name: nginx_container
     networks:
       - my_bridge_network
     ports:
@@ -10,6 +11,7 @@ services:
 
   db:
     image: postgres:latest
+    container_name: postgres_container
     environment:
       POSTGRES_USER: exampleuser
       POSTGRES_PASSWORD: examplepass

@@ -1,16 +1,16 @@
 version: '3.8'
 
 services:
-  ???:
-    image: ???
+  web:
+    image: nginx:latest
     networks:
-      - ???
+      - my_bridge_network
   
-  ???:
-    image: ???
+  app:
+    image: my_app:latest
     networks:
-      - ???
+      - my_bridge_network
 
 networks:
-  ???:
+  my_bridge_network:
     driver: bridge

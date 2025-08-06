@@ -2,7 +2,7 @@
 docker swarm init
 
 # Создаем overlay сеть для связи между сервисами
-docker network create -d overlay my_overlay_network
+docker network create -d overlay --attachable my_overlay_network
 
 # Создаем сервис веб-сервера Nginx, подключаем его к overlay сети и пробрасываем порт 80 на 8080 хоста
 docker service create --name web_server --network my_overlay_network -p 8080:80 nginx
@@ -11,9 +11,12 @@ docker service create --name web_server --network my_overlay_network -p 8080:80 
 docker service create --name postgres_db --network my_overlay_network -e POSTGRES_PASSWORD=mypassword postgres:latest
 
 # Проверяем доступность веб-сервера с помощью ping через контейнер BusyBox
-
+docker run --rm --network my_overlay_network busybox ping -c 4 web_server
 
 # Проверяем доступность базы данных с помощью ping через контейнер BusyBox
+docker run --rm --network my_overlay_network busybox ping -c 4 postgres_db
 
-
+sleep 25
+docker swarm leave --force
+# принудительно исключает текущую ноду из Docker Swarm кластера
 

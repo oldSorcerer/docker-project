@@ -4,16 +4,26 @@ services:
   frontend:
     image: nginx:alpine
     networks:
+     - front-tier
+     - back-tier
 
   backend:
     image: node:alpine
     networks:
+      - back-tier
+      - db-tier
 
   database:
     image: mysql:5.7
     networks:
-
+      - db-tier
     environment:
       MYSQL_ROOT_PASSWORD: example
 
 networks:
+  front-tier:
+    driver: bridge
+  back-tier:
+    driver: bridge
+  db-tier:
+    driver: bridge

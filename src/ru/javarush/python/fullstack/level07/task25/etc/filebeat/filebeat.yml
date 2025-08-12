@@ -1,0 +1,17 @@
+filebeat.inputs:
+- type: container
+  paths:
+    - /var/lib/docker/containers/*/*.log
+  processors:
+  - add_docker_metadata: ~
+
+output.logstash:
+  hosts: ["localhost:5044"]
+
+setup.template:
+  enabled: true
+
+setup.kibana:
+  host: "localhost:5601"
+
+logging.level: info

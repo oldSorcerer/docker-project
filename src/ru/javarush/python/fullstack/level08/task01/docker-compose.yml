@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: ???
+    working_dir: /app
+    volumes:
+      - ???:/app
+    command: sh -c "npm install && npm start"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - ???
+
+  backend:
+    image: ???
+    working_dir: /app
+    volumes:
+      - ???:/app
+    command: sh -c "pip install -r requirements.txt && flask run --host=0.0.0.0"
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - DATABASE_URL=postgresql://postgres:password@db:5432/app_db
+    depends_on:
+      - ???
+
+  db:
+    image: ???
+    volumes:
+      - ???:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=app_db
+
+volumes:
+  db_data:

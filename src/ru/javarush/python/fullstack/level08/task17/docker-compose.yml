@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: frontend-image
+    networks:
+    ???
+
+  backend:
+    image: backend-image
+    networks:
+    ???
+
+  database:
+    image: database-image
+    networks:
+      ???
+
+networks:
+???

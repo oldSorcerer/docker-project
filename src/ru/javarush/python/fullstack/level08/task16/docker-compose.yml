@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: ???
+    ports:
+      - ???
+    networks:
+      - mynetwork
+    volumes:
+      - frontend_data:/usr/share/nginx/html
+
+  backend:
+    image: ???
+    ports:
+      - ???
+    networks:
+      - mynetwork
+    volumes:
+      - backend_data:/usr/src/app
+
+  database:
+    image: ???
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    ports:
+      - ???
+    networks:
+      - mynetwork
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  ???:
+  ???:
+  ???:

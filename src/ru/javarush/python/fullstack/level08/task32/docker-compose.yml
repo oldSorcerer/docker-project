@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    # Команда для симуляции успешного запуска
+    command: [ "sh", "-c", "echo 'nginx started'; nginx -g 'daemon off;'" ]
+
+  app:
+    image: busybox
+    command: tail -f /dev/null
+
+  db:
+    image: busybox
+    command: tail -f /dev/null

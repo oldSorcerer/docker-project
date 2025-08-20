@@ -8,6 +8,7 @@ docker pull nginx:latest
 docker service update --image nginx:latest --update-order start-first my_web
 
 #--update-order start-first
+#stop-first
 # определяет порядок обновления реплик при деплое сервиса в Docker Swarm
 
 #docker swarm leave --force

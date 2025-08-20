@@ -9,6 +9,9 @@ docker service create --name nginx_service \
 
 
 # Создайте новую версию конфигурации в Docker
-
+docker config create nginx_config_v2 nginx_v2.conf
 
 # Обновите существующий сервис Nginx для использования новой конфигурации
+docker service update --config-rm nginx_config_v1 \
+  --config-add source=nginx_config_v2,target=/etc/nginx/nginx.conf \
+  nginx_service

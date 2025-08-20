@@ -12,7 +12,7 @@ rclone config create remote s3 \
   acl private
 
 # Выполните синхронизацию локальной директории с облачным хранилищем remote:bucket
-...
+rclone sync /path/to/local/dir remote:bucket
 
 # Проверьте, что синхронизация прошла успешно, просмотрев содержимое облачного хранилища
-...
+rclone ls remote:bucket

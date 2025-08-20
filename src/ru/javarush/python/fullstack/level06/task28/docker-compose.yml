@@ -3,8 +3,8 @@ services:
   app:
     image: my_app_image
     volumes:
-      - ???
-      - ???
+      - app_data:/usr/src/app/data
+      - app_config:/usr/src/app/config
 
 volumes:
   app_data:

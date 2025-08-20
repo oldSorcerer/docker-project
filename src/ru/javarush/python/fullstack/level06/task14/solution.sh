@@ -14,7 +14,7 @@ docker exec -it postgres_container psql -U postgres -d mydatabase -c "CREATE TAB
 docker exec -it postgres_container psql -U postgres -d mydatabase -c "INSERT INTO test_table (name) VALUES ('Test Entry 1'), ('Test Entry 2');"
 
 # Выполните бэкап базы данных с использованием утилиты pg_dump и сохраните его на хосте
-docker exec -t postgres_container pg_dump -U postgres mydatabase > mydatabasr_backup.sql
+docker exec -t postgres_container pg_dump -U postgres mydatabase > mydatabase_backup.sql
 
 # Проверьте, что бэкап создан
 ls -l mydatabase_backup.sql

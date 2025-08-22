@@ -5,10 +5,10 @@ docker volume create app_data
 docker run -d --name nginx_app -v app_data:/usr/share/nginx/html -p 8080:80 nginx
 
 # Запишите тестовый файл в том (например, index.html)
-docker exec nginx_app sh -c "echo 'Hello Docker!' > /user/share/nginx/html/index.html"
+docker exec nginx_app sh -c "echo 'Hello Docker' > /usr/share/nginx/html/index.html"
 
 # Создайте бэкап данных тома app_data и сохраните его на хосте в виде архива
-docker run --rm -v app_data:/data -v $(pwd):/backup busydox tar -czf /backup/app_data_backup.tar.gz /data
+docker run --rm -v app_data:/data -v $(pwd):/backup busybox tar -czf /backup/app_data_backup.tar.gz /data
 
 # Проверьте, что бэкап создан в текущей директории
-
+ls -l app_data_backup.tar.gz

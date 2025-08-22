@@ -1,5 +1,5 @@
 # Запустите контейнер с PostgreSQL, установив пароль для пользователя
-
+docker run -d --name postgres_container -e POSTGRES_PASSWORD=mysercetpassword -e POSTGRES_DB=mydatabase postgres
 
 # Подождите, пока PostgreSQL полностью запустится (можно подождать несколько секунд)
 sleep 10

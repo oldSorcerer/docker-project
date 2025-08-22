@@ -1,5 +1,5 @@
 # Запустите контейнер с PostgreSQL, установив пароль для пользователя
-docker run -d --name postgres_container -e POSTGRES_PASSWORD=mysercetpassword -e POSTGRES_DB=mydatabase postgres
+docker run -d --name postgres_container -e POSTGRES_PASSWORD=mysercetpassword -e POSTGRES_DB=mydatabase -p 5432:5432 postgres
 
 # Подождите, пока PostgreSQL полностью запустится (можно подождать несколько секунд)
 sleep 10
@@ -14,7 +14,7 @@ docker exec -it postgres_container psql -U postgres -d mydatabase -c "CREATE TAB
 docker exec -it postgres_container psql -U postgres -d mydatabase -c "INSERT INTO test_table (name) VALUES ('Test Entry 1'), ('Test Entry 2');"
 
 # Выполните бэкап базы данных с использованием утилиты pg_dump и сохраните его на хосте
-
+docker exec -t postgres_container pg_dump -U postgres mydatabase > mydatabasr_backup.sql
 
 # Проверьте, что бэкап создан
 ls -l mydatabase_backup.sql

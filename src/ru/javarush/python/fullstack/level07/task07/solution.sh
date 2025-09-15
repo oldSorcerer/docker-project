@@ -8,4 +8,4 @@ docker run -d --name postgres_container \
     postgres
 
 # Вывод имени контейнера, процента использования CPU и памяти.
-
+docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"

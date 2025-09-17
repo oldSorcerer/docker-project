@@ -1,11 +1,11 @@
 global:
-  scrape_interval: ???
+  scrape_interval: 15s
 
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['localhost:???']    # Адрес, где работает Prometheus
+      - targets: ['localhost:9090']    # Адрес, где работает Prometheus
 
   - job_name: 'cadvisor'
     static_configs:
-      - targets: ['localhost:???']    # Адрес, где работает cAdvisor
+      - targets: ['localhost:8080']    # Адрес, где работает cAdvisor

@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   grafana:
-    image: ???
+    image: grafana/grafana
     ports:
-      - "???:???"
-    restart: ???
+      - "3000:3000"
+    restart: always
